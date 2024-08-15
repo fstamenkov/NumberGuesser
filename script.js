@@ -17,7 +17,10 @@ function compareGuesses(humanGuess, computerGuess, targetNumber) {
     targetNumber = generateTarget();
     let humanDifference = getAbsoluteDistance(targetNumber, humanGuess);
     let computerDifference = getAbsoluteDistance(targetNumber, computerGuess);
-    if (computerDifference < humanDifference) {
+
+    if((humanGuess > 9) || (humanGuess < 0)) {
+        window.alert("Number needs to be between 0 and 9.");
+    } else if (computerDifference < humanDifference) {
         return false;
     } else {
         return true;
@@ -38,10 +41,3 @@ function updateScore(winner) {
 function advanceRound() {
     currentRoundNumber++;
 }
-
-/* function wrongNumber () {
-    if((humanGuess > 9) || (humanGuess < 0)) {
-        window.alert("Number needs to be between 0 and 9.");
-    }
-}
-*/
